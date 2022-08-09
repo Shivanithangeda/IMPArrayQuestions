@@ -1,0 +1,17 @@
+//Replace every element with the least greater element on its right
+class Solution {
+    public static ArrayList<Integer> findLeastGreater(int n, int[] arr) {
+        TreeMap<Integer,Integer> t = new TreeMap<>();
+       ArrayList<Integer> a = new ArrayList<>();
+       for(int i=n-1;i>=0;i--){
+           Map.Entry<Integer,Integer> x = t.higherEntry(arr[i]);
+           int val = x==null?-1:x.getKey();
+           a.add(val);
+           t.put(arr[i],0);
+       }
+       Collections.reverse(a);
+       return a;
+    
+    }
+}
+      
